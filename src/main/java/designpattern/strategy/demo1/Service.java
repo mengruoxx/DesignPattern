@@ -1,5 +1,6 @@
 package designpattern.strategy.demo1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,6 +14,24 @@ public class Service {
     public double calTotalPrice(List<GoodItem> goodItemList, Integer index) throws Exception {
         SaleContext saleContext = new SaleContext();
         return saleContext.calSalePrice(goodItemList, index);
+    }
+
+    public static void main(String[] args) {
+        List<List<Integer>> list = new ArrayList<>();
+        List<Integer> list1 = new ArrayList<>();
+        list1.add(1);
+        list1.add(2);
+        List<Integer> list2 = new ArrayList<>();
+        list2.add(3);
+        list2.add(4);
+        list.add(list1);
+        list.add(list2);
+        ArrayList<List<Integer>> newList = new ArrayList<>(list);
+        list.remove(1);
+        list1.set(0, 9);
+
+        System.out.println(list);
+        System.out.println(newList);
     }
 
 }
