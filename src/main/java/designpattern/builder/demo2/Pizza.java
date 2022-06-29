@@ -12,6 +12,9 @@ import java.util.Set;
 public abstract class Pizza {
 
     public enum Topping {
+        /**
+         * 调料
+         */
         HAM, MUSHROOM, ONION
     }
 
@@ -30,7 +33,7 @@ public abstract class Pizza {
 
         public T addTopping(Topping topping) {
             toppings.add(topping);
-            // 直接返回this，调用时返回的就是父类PizzaBuilder，所以把这个返回值用方法让子类实现返回，并且拿到类上的泛型
+            // 直接返回this，调用时返回的就是父类PizzaBuilder，所以把这个返回值用方法让子类实现返回，这个时候需要类上的泛型，需要子类将具体的builder类传进来
 //            return this;
             return self();
         }
@@ -42,8 +45,7 @@ public abstract class Pizza {
         protected abstract T self();
 
         /**
-         * build方法是抽象的，子类的build需要实现，返回具体的子类对象
-         * 想要返回子类而不是Pizza这个父类，就需要拿到子类对象，需要在类上传一个泛型才可以
+         * build方法是抽象的，子类的build需要实现，返回具体的子类对象。子类的方法返回值直接写子类具体类型就可以
          * @return
          */
         protected abstract Pizza build();

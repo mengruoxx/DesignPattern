@@ -38,9 +38,7 @@ public class NyPizza extends Pizza {
         /**
          * 尺寸
          */
-        SMALL,
-        MEDIUM,
-        LARGE
+        SMALL, MEDIUM, LARGE
     }
 
 }
