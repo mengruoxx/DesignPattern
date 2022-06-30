@@ -20,7 +20,7 @@ public abstract class Pizza {
 
     private final Set<Topping> toppings;
 
-    public Pizza(Builder builder) {
+    public Pizza(Builder<?> builder) {
         this.toppings = builder.toppings;
     }
 
